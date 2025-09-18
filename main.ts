@@ -8,6 +8,6 @@ const instance = express();
 
 instance.use("/api", API);
 
-const server = instance.listen(process.env.PORT, () => {
+instance.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT}!`);
 });
