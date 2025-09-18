@@ -1,0 +1,23 @@
+{
+  "name": "edzien",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/zieby-jk/edzien#readme",
+  "bugs": {
+    "url": "https://github.com/zieby-jk/edzien/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zieby-jk/edzien.git"
+  },
+  "license": "MIT",
+  "author": "zieba",
+  "type": "module",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc main.ts",
+    "run": "node main",
+    "dev": "ts-node main.ts"
+  }
+}
