@@ -1,0 +1,195 @@
+:root{
+    --main-color: #c9c9c9;
+    --active-bookmark-color: #2854C5;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* color: #fff; */
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../photos/main-page-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Della Respira';
+    /* backdrop-filter: blur(3px); */
+}
+header{
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: left;
+    text-shadow: 4px 4px 4px #000;
+    color: var(--main-color);
+}
+
+.logo{
+    text-decoration: none;
+    color: var(--main-color);
+    margin-top: 1rem;
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+
+}
+
+h2{
+    transition: color .3s ;
+    cursor: pointer;
+    margin-left: auto;
+}
+h2:hover{
+    color: var(--active-bookmark-color);
+}
+.bookmarks{
+    display: flex;
+    position: fixed;
+    left: 30%;
+    margin-top: 3rem;
+    transform: translateY(-50%);
+    width: 50%;
+    
+}
+
+.account{
+    position: fixed;
+    left: calc(100% - 5rem) ;
+    margin-top: 1rem;
+    
+}
+.account, .account img{
+    cursor: pointer;
+    width: 3rem;
+    height: 3rem;
+}
+.icon, .active-icon {
+    width: 80px;
+    height: 80px;
+    transition: opacity 0.4s ease; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+
+.active-icon {
+    display: none;
+    opacity: 0; 
+}
+.heading{
+    color: #fff;
+    position: relative; 
+    top: 20vh;
+    left: calc(100% - 66rem);
+    font-size: 7rem;
+    width: 55rem;
+    display: block;
+    text-shadow: 5px 5px 4px #000;
+}
+.login-button{
+    width: 14rem;
+    height: 3.5rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+    border: none;
+    box-shadow: 0 0 10px var(--active-bookmark-color);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    
+    cursor: pointer;
+    font-size: 1rem;
+    padding-inline: 4rem;
+
+}
+.login-button::before{
+   content: '';
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 230%;
+  height: 280%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(0,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+.login-button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+.login-button:hover::before {
+    opacity: 1;
+    transform: rotate(-45deg)
+    translateY(100%);
+}
+.login-button p{
+    color: #fff;
+    display: inline;
+    
+    
+}
+.main-photo{
+    position: absolute;
+    min-width: 800px;
+    width: 50%;
+    z-index: -1;
+    height: auto;
+    filter: brightness(15%);
+    top: 10%;
+    left: 2rem;
+}
+.login-and-register{
+    position: absolute;
+    top: 80vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+.register{
+    display: flex;
+    color: var(--main-color);
+    margin-top: 1rem;
+    cursor: pointer;
+}
+.register a{
+    margin-left: 5px;
+    text-decoration: none;
+    transform-origin: right;
+    transition: color .3s;
+    color: #2854C5;
+}
+.register a:hover{
+    color: #00ffff;
+}
+.register::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #346675, #00ffff);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-out;
+    
+}
+
+.register:hover::after{
+    transform: scaleX(1);
+}
