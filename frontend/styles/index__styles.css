@@ -202,17 +202,45 @@ h2:hover{
     top: 5rem;
     width: 10rem;
     left: calc(100% - 11rem);
-    height: 12rem;
-    background-color: #fff;
+    min-height: 12rem;
+    background-color: transparent;
     transition: ease-in 2s;
     opacity: 1;
+    border-radius: 20px;
 }
 .account-option{
+    border-radius: 10px;
     position: relative;
+    margin-block: .3rem;
     top: 0;
     left: 0;
-    width: 10rem;
+    width: 100%;
     height: 4rem;
     background-color: #363838;
     transition: ease-in 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+.account-option::before{
+    position: absolute;
+    content: '';
+    top: 0%;
+    width: 1rem;
+    left: -1rem;
+    height: 100%;
+    background: linear-gradient(to right, transparent,
+    rgba(228, 228, 228, 0.3));
+    opacity: 0;
+    transition: all 0.5s ease;
+    
+}
+.account-option:hover::before{
+    opacity: 1;
+    transform: translateX(1rem);
+    width: 10rem;
+    transform-origin: left;
 }

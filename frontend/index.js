@@ -13,7 +13,7 @@ let optionsContainer;
 account.onmouseover = () =>{
     accountDefaultIcon.style.opacity = 0;
     CreatingOptions()
-    clearInterval(interval)
+    CleanCounting();
     accountActiveIcon.style.opacity = 1;
 
     
@@ -23,15 +23,26 @@ let leavingTime;
 account.onmouseleave = async () => {
     accountDefaultIcon.style.opacity = 1;
     accountActiveIcon.style.opacity = 0;
+    RemoveAccountOptions();
+};
+window.onload = () =>{
+    Loading();
+}
+function CleanCounting(){
+    if(interval != null){
+        clearInterval(interval)
+    }
+}
+async function RemoveAccountOptions(){
     leavingTime = 0;
-    clearInterval(interval)
+    CleanCounting();
     
-     interval =setInterval(() =>{
+     interval = setInterval(() =>{
         leavingTime++
         console.log(leavingTime)
         
     }, 1000)
-    await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for 2.5 seconds (5 * 500ms)
+    await new Promise(time => setTimeout(time, 5000)); 
     
     
     if (isAccountOptions && !isAccountOptionsClicked&&leavingTime >= 5) {
@@ -39,16 +50,12 @@ account.onmouseleave = async () => {
         optionsContainer.style.opacity = "0";
         setTimeout(() => {
             optionsContainer.remove();
-            clearInterval(interval)
+            CleanCounting()
         }, 500);
 
         isAccountOptions = false;
     }
-};
-window.onload = () =>{
-    Loading();
 }
-
 function Loading() {
     let dots = 0;
     let els = [];
@@ -111,7 +118,7 @@ function CreatingOptions(){
     }, 50)
     header.appendChild(optionsContainer)
     optionsContainer.classList.add("account-options")
-    let x = 0; //to jest tylko czasowe
+    let x = 0; 
     options.forEach(o=>{
         x++
         let option = document.createElement(o.htmlTag);
@@ -124,7 +131,15 @@ function CreatingOptions(){
         option.classList.add("account-option")
         option.textContent = `opcja ${x}`
         
-        console.log(option)
+        if (optionsContainer) {
+    Array.from(optionsContainer.children).forEach(child => {
+        child.onmouseover = () => {
+            CleanCounting();
+        };
+        child.onmouseleave = RemoveAccountOptions;
+    });
+}
+
 
     })
     
