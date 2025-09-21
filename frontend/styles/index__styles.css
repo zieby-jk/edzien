@@ -8,10 +8,13 @@
     box-sizing: border-box;
     /* color: #fff; */
 }
-
+.null-opacity{
+    opacity: 0;
+    
+}
 body{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url(../photos/main-page-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -77,10 +80,7 @@ h2:hover{
     left: 0;
     }
 
-.active-icon {
-    display: none;
-    opacity: 0; 
-}
+
 .heading{
     color: #fff;
     position: relative; 
@@ -192,4 +192,14 @@ h2:hover{
 
 .register:hover::after{
     transform: scaleX(1);
+}
+.account-options{
+    position: fixed;
+    top: 5rem;
+    width: 10rem;
+    left: calc(100% - 11rem);
+    height: 10rem;
+    background-color: #fff;
+    transition: ease-in 2s;
+    opacity: 1;
 }
