@@ -195,11 +195,24 @@ h2:hover{
 }
 .account-options{
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     top: 5rem;
     width: 10rem;
     left: calc(100% - 11rem);
-    height: 10rem;
+    height: 12rem;
     background-color: #fff;
     transition: ease-in 2s;
     opacity: 1;
+}
+.account-option{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 4rem;
+    background-color: #363838;
+    transition: ease-in 1s;
 }

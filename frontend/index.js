@@ -7,18 +7,44 @@ let header = document.querySelector("header")
 let registerDiv = document.querySelector(".register")
 let registerLink = document.querySelector(".register-link")
 let isAccountOptions = false;
+let isAccountOptionsClicked = false;
+let optionsContainer;
+
 account.onmouseover = () =>{
     accountDefaultIcon.style.opacity = 0;
     CreatingOptions()
+    clearInterval(interval)
     accountActiveIcon.style.opacity = 1;
+
     
 }
-account.onmouseleave= () =>{
+let interval;
+let leavingTime;
+account.onmouseleave = async () => {
     accountDefaultIcon.style.opacity = 1;
     accountActiveIcon.style.opacity = 0;
+    leavingTime = 0;
+    clearInterval(interval)
     
-}
+     interval =setInterval(() =>{
+        leavingTime++
+        console.log(leavingTime)
+        
+    }, 1000)
+    await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for 2.5 seconds (5 * 500ms)
+    
+    
+    if (isAccountOptions && !isAccountOptionsClicked&&leavingTime >= 5) {
+        optionsContainer.style.transition = "opacity 0.5s ease";
+        optionsContainer.style.opacity = "0";
+        setTimeout(() => {
+            optionsContainer.remove();
+            clearInterval(interval)
+        }, 500);
 
+        isAccountOptions = false;
+    }
+};
 window.onload = () =>{
     Loading();
 }
@@ -72,23 +98,34 @@ function CreatingOptions(){
     isAccountOptions = true
     let options = 
     [
-        {className: "account", htmlTag: "div"},
-        {className: "settings", htmlTag: "div"},
-        {className: "help", htmlTag: "div"},
+        {className: "account-info", htmlTag: "div", delayTime: 500},
+        {className: "settings", htmlTag: "div", delayTime: 1000},
+        {className: "help", htmlTag: "div", delayTime: 1500},
     ]
-    let option;
     
-    let optionsContainer = document.createElement("div")
+    
+    optionsContainer = document.createElement("div")
     optionsContainer.style.opacity = "0";
     setTimeout(()=>{
         optionsContainer.style.opacity = "1"
     }, 50)
     header.appendChild(optionsContainer)
     optionsContainer.classList.add("account-options")
+    let x = 0; //to jest tylko czasowe
     options.forEach(o=>{
-        option = document.createElement(o.htmlTag);
-        option.classList.add(o.className)
+        x++
+        let option = document.createElement(o.htmlTag);
         optionsContainer.appendChild(option)
+        option.style.opacity = "0";
+        setTimeout(()=>{
+            option.style.opacity = "1"
+        }, o.delayTime)
+        option.classList.add(o.className)
+        option.classList.add("account-option")
+        option.textContent = `opcja ${x}`
+        
         console.log(option)
+
     })
+    
 }
