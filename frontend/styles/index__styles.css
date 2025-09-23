@@ -1,6 +1,7 @@
 :root{
     --main-color: #c9c9c9;
     --active-bookmark-color: #2854C5;
+    --purple: #271F53;
 }
 *{
     margin: 0;
@@ -138,9 +139,15 @@ h2:hover{
     transform: rotate(-45deg)
     translateY(100%);
 }
-.login-button p{
+.login-button a{
     color: #fff;
-    display: inline;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     
     
 }
@@ -204,7 +211,7 @@ h2:hover{
     left: calc(100% - 11rem);
     min-height: 12rem;
     background-color: transparent;
-    transition: ease-in 2s;
+    transition: ease-in-out .1s;
     opacity: 1;
     border-radius: 20px;
 }
@@ -243,4 +250,16 @@ h2:hover{
     transform: translateX(1rem);
     width: 10rem;
     transform-origin: left;
+}
+@media screen and (max-width: 1250px) {
+    .heading{
+        font-size: 4.5rem;
+        width: 40rem;
+        left: 45%;
+    }
+    .main-photo{
+        
+        min-width: 500px;
+        width: 30%;
+    }
 }

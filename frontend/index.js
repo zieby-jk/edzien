@@ -105,9 +105,9 @@ function CreatingOptions(){
     isAccountOptions = true
     let options = 
     [
-        {className: "account-info", htmlTag: "div", delayTime: 500},
-        {className: "settings", htmlTag: "div", delayTime: 1000},
-        {className: "help", htmlTag: "div", delayTime: 1500},
+        {className: "account-info", htmlTag: "div", delayTime: 300},
+        {className: "settings", htmlTag: "div", delayTime: 600},
+        {className: "help", htmlTag: "div", delayTime: 900},
     ]
     
     
