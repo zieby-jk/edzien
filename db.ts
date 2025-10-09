@@ -5,5 +5,5 @@ type Database = {
 }
 
 export const database: Database = {
-    connection: null
-}
+     connection: null
+};

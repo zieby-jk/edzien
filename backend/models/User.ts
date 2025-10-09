@@ -24,7 +24,8 @@ export interface Staff {
 };
 
 export interface Status {
-
+    id: number;
+    value: string;
 }
 
 export interface Device {
@@ -43,34 +44,34 @@ export interface UserPreference {
 };
 
 export function GetUser<TObject extends { user_id: number; }>(object: TObject): Promise<User> {
-    return new Promise((resolve, reject) => {
-        database.connection?.query<RowDataPacket[]>(`select * from users where id = ${object.user_id}`, (error, rows) => {
-            if (rows.length === 0) reject(404);
-            resolve(rows[0] as User);
-        });
-    });
+     return new Promise((resolve, reject) => {
+          database.connection?.query<RowDataPacket[]>(`select * from users where id = ${object.user_id}`, (error, rows) => {
+               if (rows.length === 0) reject(404);
+               resolve(rows[0] as User);
+          });
+     });
 }
 
 export function ListUsers(): Promise<User[]> {
-    return new Promise((resolve, reject) => {
-        database.connection?.query<RowDataPacket[]>(`select * from users`, (error, rows) => {
-            if (rows.length === 0) reject(404);
-            resolve(rows as User[]);
-        });
-    });
+     return new Promise((resolve, reject) => {
+          database.connection?.query<RowDataPacket[]>("select * from users", (error, rows) => {
+               if (rows.length === 0) reject(404);
+               resolve(rows as User[]);
+          });
+     });
 }
 
 export function TryLogin(username: string, password: string): Promise<User | null> {
-    return new Promise(resolve => {
-        database.connection?.prepare(`select * from users where username = ? and password = ?`, (error, statement) => {
-            statement.execute<RowDataPacket[]>([username, password], (err, rows) => {
-                if (rows.length === 0) resolve(null);
+     return new Promise(resolve => {
+          database.connection?.prepare("select * from users where username = ? and password = ?", (error, statement) => {
+               statement.execute<RowDataPacket[]>([username, password], (err, rows) => {
+                    if (rows.length === 0) resolve(null);
 
-                resolve(rows[0] as User);
-            });
-            statement.close();
-        });
-    });
+                    resolve(rows[0] as User);
+               });
+               statement.close();
+          });
+     });
 }
 
 enum TableQueryType {
@@ -85,17 +86,17 @@ type UserToTable = {
 };
 
 export function FromUser<TName extends keyof UserToTable,
-    TIsArray = UserToTable[TName][0], 
+    TIsArray = UserToTable[TName][0],
     TResult = TIsArray extends TableQueryType.Multi
     ? UserToTable[TName][1][]
     : [UserToTable[TName][1]]>(table: TName, user: User): Promise<TResult> {
-    return new Promise(resolve => {
-        database.connection?.prepare(`select * from ${table} where user_id = ?`, (error, statement) => {
-            statement.execute<RowDataPacket[]>([user.id], (err, rows) => {
-                resolve(rows as TResult);
-            });
-            statement.close();
-        });
-    });
+     return new Promise(resolve => {
+          database.connection?.prepare(`select * from ${table} where user_id = ?`, (error, statement) => {
+               statement.execute<RowDataPacket[]>([user.id], (err, rows) => {
+                    resolve(rows as TResult);
+               });
+               statement.close();
+          });
+     });
 }
 
