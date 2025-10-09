@@ -1,20 +1,23 @@
-:root{
+:root {
     --main-color: #c9c9c9;
     --active-bookmark-color: #2854C5;
     --purple: #271F53;
     --label-color: #5e5e5e;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     /* color: #fff; */
 }
-.null-opacity{
+
+.null-opacity {
     opacity: 0;
-    
+
 }
-body{
+
+body {
     width: 100vw;
     min-height: 100vh;
     background-image: url(../photos/main-page-background.jpg);
@@ -25,7 +28,8 @@ body{
     font-family: 'Della Respira';
     /* backdrop-filter: blur(3px); */
 }
-header{
+
+header {
     display: flex;
     align-items: center;
     position: relative;
@@ -34,7 +38,7 @@ header{
     color: var(--main-color);
 }
 
-.logo{
+.logo {
     text-decoration: none;
     color: var(--main-color);
     margin-top: 1rem;
@@ -44,48 +48,54 @@ header{
 
 }
 
-h2{
-    transition: color .3s ;
+h2 {
+    transition: color .3s;
     cursor: pointer;
     margin-left: auto;
 }
-h2:hover{
+
+h2:hover {
     color: var(--active-bookmark-color);
 }
-.bookmarks{
+
+.bookmarks {
     display: flex;
     position: fixed;
     left: 30%;
     margin-top: 3rem;
     transform: translateY(-50%);
     width: 50%;
-    
+
 }
 
-.account{
+.account {
     position: fixed;
-    left: calc(100% - 5rem) ;
+    left: calc(100% - 5rem);
     margin-top: 1rem;
-    
+
 }
-.account, .account img{
+
+.account,
+.account img {
     cursor: pointer;
     width: 3rem;
     height: 3rem;
 }
-.icon, .active-icon {
+
+.icon,
+.active-icon {
     width: 80px;
     height: 80px;
-    transition: opacity 0.4s ease; 
+    transition: opacity 0.4s ease;
     position: absolute;
     top: 0;
     left: 0;
-    }
+}
 
 
-.heading{
+.heading {
     color: #fff;
-    position: relative; 
+    position: relative;
     top: 20vh;
     left: calc(100% - 66rem);
     font-size: 7rem;
@@ -93,7 +103,8 @@ h2:hover{
     display: block;
     text-shadow: 5px 5px 4px #000;
 }
-.login-button{
+
+.login-button {
     width: 14rem;
     height: 3.5rem;
     background-color: transparent;
@@ -108,39 +119,40 @@ h2:hover{
     box-shadow: 0 0 10px var(--active-bookmark-color);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    
+
     cursor: pointer;
     font-size: 1rem;
     padding-inline: 4rem;
 
 }
-.login-button::before{
-   content: '';
-  position: absolute;
-  top: -50%;
-  left: -70%;
-  width: 230%;
-  height: 280%;
-  background: linear-gradient(
-    0deg, 
-    transparent, 
-    transparent 30%, 
-    rgba(0,255,255,0.3)
-  );
-  transform: rotate(-45deg);
-  transition: all 0.5s ease;
-  opacity: 0;
+
+.login-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -70%;
+    width: 230%;
+    height: 280%;
+    background: linear-gradient(0deg,
+            transparent,
+            transparent 30%,
+            rgba(0, 255, 255, 0.3));
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
 }
-.login-button:hover{
+
+.login-button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0,255,255,0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
+
 .login-button:hover::before {
     opacity: 1;
-    transform: rotate(-45deg)
-    translateY(100%);
+    transform: rotate(-45deg) translateY(100%);
 }
-.login-button a{
+
+.login-button a {
     color: #fff;
     position: relative;
     width: 100%;
@@ -149,10 +161,11 @@ h2:hover{
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    
-    
+
+
 }
-.main-photo{
+
+.main-photo {
     position: absolute;
     min-width: 800px;
     width: 50%;
@@ -162,29 +175,34 @@ h2:hover{
     top: 10%;
     left: 2rem;
 }
-.login-and-register{
+
+.login-and-register {
     position: absolute;
     top: 80vh;
     left: 50vw;
     transform: translate(-50%, -50%);
 }
-.register{
+
+.register {
     display: flex;
     color: var(--main-color);
     margin-top: 1rem;
     cursor: pointer;
 }
-.register a{
+
+.register a {
     margin-left: 5px;
     text-decoration: none;
     transform-origin: right;
     transition: color .3s;
     color: #2854C5;
 }
-.register a:hover{
+
+.register a:hover {
     color: #00ffff;
 }
-.register::after{
+
+.register::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -195,13 +213,14 @@ h2:hover{
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.4s ease-out;
-    
+
 }
 
-.register:hover::after{
+.register:hover::after {
     transform: scaleX(1);
 }
-.account-options{
+
+.account-options {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -216,7 +235,8 @@ h2:hover{
     opacity: 1;
     border-radius: 20px;
 }
-.account-option{
+
+.account-option {
     border-radius: 10px;
     position: relative;
     margin-block: .3rem;
@@ -233,7 +253,8 @@ h2:hover{
     overflow: hidden;
 
 }
-.account-option::before{
+
+.account-option::before {
     position: absolute;
     content: '';
     top: 0%;
@@ -241,25 +262,28 @@ h2:hover{
     left: -1rem;
     height: 100%;
     background: linear-gradient(to right, transparent,
-    rgba(228, 228, 228, 0.3));
+            rgba(228, 228, 228, 0.3));
     opacity: 0;
     transition: all 0.5s ease;
-    
+
 }
-.account-option:hover::before{
+
+.account-option:hover::before {
     opacity: 1;
     transform: translateX(1rem);
     width: 10rem;
     transform-origin: left;
 }
+
 @media screen and (max-width: 1250px) {
-    .heading{
+    .heading {
         font-size: 4.5rem;
         width: 40rem;
         left: 45%;
     }
-    .main-photo{
-        
+
+    .main-photo {
+
         min-width: 500px;
         width: 30%;
     }

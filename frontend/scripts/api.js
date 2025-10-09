@@ -1,12 +1,12 @@
 const API = {
-    get accessToken(){
+    get accessToken() {
         return localStorage.getItem("token")
     },
-    set accessToken(value){
+    set accessToken(value) {
         localStorage.setItem("token", value)
     },
-    AuthGet: async (url) =>{
-        if(API.accessToken === null) {
+    AuthGet: async (url) => {
+        if (API.accessToken === null) {
             throw new Error("Access token is null")
         }
         return await fetch(url, {
@@ -16,6 +16,6 @@ const API = {
             }
         })
     }
-    
-    
+
+
 }

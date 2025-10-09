@@ -12,35 +12,35 @@ let labels = document.querySelectorAll(".login-form-label");
 // })
 
 let isInputClicked = false;
-inputs.forEach(input=>{
-    input.onmouseover = () =>{
+inputs.forEach(input => {
+    input.onmouseover = () => {
         InputOnHover(input);
     }
-    input.onfocus =() =>{
+    input.onfocus = () => {
         InputClicked(input);
-    } 
-    input.onblur = () =>{
+    }
+    input.onblur = () => {
         isInputClicked = false
         input.classList.toggle("active")
-        
+
         console.log("odkliknięto")
 
     }
 })
-function InputClicked(clickedInput){
-    if(isInputClicked) return;
+function InputClicked(clickedInput) {
+    if (isInputClicked) return;
     isInputClicked = true
     console.log("kliknięto")
     let inputBorder = document.createElement("span")
     clickedInput.appendChild(inputBorder)
-    setTimeout(()=>{
+    setTimeout(() => {
         inputBorder.classList.add("input-border")
     })
 }
 
 
 
-function InputOnHover(hoveredInput){
+function InputOnHover(hoveredInput) {
     let hoveredLabel = document.querySelector(`.login-form-label[for=${hoveredInput.name}]`)
     console.log(hoveredLabel)
 }
