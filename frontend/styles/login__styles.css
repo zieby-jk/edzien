@@ -1,3 +1,9 @@
+:root {
+    --main-color: #c9c9c9;
+    --active-bookmark-color: #2854C5;
+    --purple: #271F53;
+    --label-color: #5e5e5e;
+}
 .login-container {
     max-width: 40rem;
     max-height: 45rem;
@@ -12,7 +18,7 @@
     transform: translate(-50%, -50%);
     border-radius: 15px;
     background-color: rgba(0, 0, 0, .3);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);  /* eslint-disable-line css/use-baseline */
     box-shadow: 0 0 10px #fff;
 
 
@@ -73,7 +79,7 @@
 }
 
 .login-form-input:focus {
-    outline: none;
+    outline: none; /* eslint-disable-line css/use-baseline */
     border: none;
     box-shadow: 0 0 10px #2070a5;
     color: #2070a5;
@@ -128,7 +134,7 @@
     padding-block: .4rem;
     background: rgba(63, 62, 62, 0.363);
     cursor: pointer;
-    outline: none;
+    outline: none; /* eslint-disable-line css/use-baseline */
     border: none;
     color: #fff;
     overflow: hidden;

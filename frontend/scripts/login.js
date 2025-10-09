@@ -1,6 +1,6 @@
-let form = document.querySelector(".login-form");
+// let form = document.querySelector(".login-form");
 let inputs = document.querySelectorAll(".login-form-input");
-let labels = document.querySelectorAll(".login-form-label");
+// let labels = document.querySelectorAll(".login-form-label");
 // labels.forEach(label =>{
 //     label.onclick = () =>{ 
 //         label.style.display = "none";
