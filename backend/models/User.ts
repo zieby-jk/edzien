@@ -40,7 +40,63 @@ export interface Device {
 export interface UserPreference {
     id: number;
     user_id: number;
+    language_id: number;
+    colour_theme: string;
+};
 
+export interface AdditionalAuthentication {
+    id: number;
+    value: string;
+};
+
+export interface AdditionalAuthenticationType {
+    id: number;
+    unique_identifier: string;
+    friendly_name: string;
+};
+
+export interface Role {
+    id: number;
+    school_id: number;
+    name: string;
+    colour: string;
+};
+
+export interface Permission {
+    id: number;
+    unique_identifier: string;
+    friendly_name: string;
+};
+
+export interface PermissionRole {
+    id: number;
+    role_id: number;
+    permission_id: number;
+};
+
+export interface AuditLog {
+    id: number;
+    user_id: number;
+    action: string;
+    target_id: number;
+    target_tbl: string;
+    timestamp: string;
+    details: string;
+};
+
+export interface LoginHistory {
+    id: number;
+    user_id: number;
+    device_id: number;
+    ip_address: string;
+    timestamp: string;
+    success: boolean;
+};
+
+export interface LoginToken {
+    id: number;
+    id_device: number;
+    value: string;
 };
 
 export function GetUser<TObject extends { user_id: number; }>(object: TObject): Promise<User> {
