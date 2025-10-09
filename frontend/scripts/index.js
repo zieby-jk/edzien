@@ -42,10 +42,10 @@ async function RemoveAccountOptions(){
         console.log(leavingTime)
         
     }, 1000)
-    await new Promise(time => setTimeout(time, 5000)); 
+    await new Promise(time => setTimeout(time, 1000)); 
     
     
-    if (isAccountOptions && !isAccountOptionsClicked&&leavingTime >= 5) {
+    if (isAccountOptions && !isAccountOptionsClicked&&leavingTime >= 1) {
         optionsContainer.style.transition = "opacity 0.5s ease";
         optionsContainer.style.opacity = "0";
         setTimeout(() => {
@@ -107,7 +107,7 @@ function CreatingOptions(){
     [
         {className: "account-info", htmlTag: "div", delayTime: 300},
         {className: "settings", htmlTag: "div", delayTime: 600},
-        {className: "help", htmlTag: "div", delayTime: 900},
+        {className: "help", htmlTag: "div", delayTime: 900}
     ]
     
     
