@@ -44,7 +44,7 @@ const API = {
      schools: {
           _cache: [],
           refresh: async () => {
-               _cache = await fetch("/api/school/lists").then(r => r.json());
+               this._cache = await fetch("/api/school/lists").then(r => r.json());
           },
           get list() { return this._cache; }
      }
