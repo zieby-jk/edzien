@@ -1,3 +1,6 @@
+import { RowDataPacket } from "mysql2";
+import { database } from "../../db.js";
+
 export interface Class {
     id: number;
     school_id: number;
@@ -34,3 +37,17 @@ export interface EventType {
     id: number;
     name: string;
 };
+
+export interface School {
+    id: number;
+    name: string;
+    max_class_lvl: number;
+};
+
+export function ListSchools(): Promise<School[]> {
+    return new Promise(resolve => {
+        database.connection?.query<RowDataPacket[]>(`select * from school`, (err, rows) => {
+            resolve(rows as School[]);
+        });
+    });
+}

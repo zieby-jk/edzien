@@ -23,8 +23,4 @@ interface DatabaseApi {
 
 instance.listen(process.env.PORT, () => {
      console.log(`Server listening on port ${process.env.PORT}!`);
-     database.connection?.query<RowDataPacket[]>("SHOW DATABASES;", (err, result) => {
-          const databases: DatabaseApi[] = result as DatabaseApi[];
-          console.log(databases[0].Database);
-     });
 });
