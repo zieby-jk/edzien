@@ -45,9 +45,9 @@ export interface School {
 };
 
 export function ListSchools(): Promise<School[]> {
-    return new Promise(resolve => {
-        database.connection?.query<RowDataPacket[]>(`select * from school`, (err, rows) => {
-            resolve(rows as School[]);
-        });
-    });
+     return new Promise(resolve => {
+          database.connection?.query<RowDataPacket[]>("select * from school", (err, rows) => {
+               resolve(rows as School[]);
+          });
+     });
 }
