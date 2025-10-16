@@ -20,7 +20,7 @@
 body {
     width: 100vw;
     min-height: 100vh;
-    background-image: url(../photos/main-page-background.jpg);
+    background-image: url(/assets/photos/main-page-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
