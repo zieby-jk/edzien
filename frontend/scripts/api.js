@@ -49,3 +49,4 @@ const API = {
           get list() { return this._cache; }
      }
 };
+window.onload = API.schools.refresh
