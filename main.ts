@@ -9,7 +9,8 @@ config();
 const access: ConnectionOptions = {
      user: process.env.DB_USER,
      database: process.env.DB_NAME,
-     password: process.env.DB_PASSWORD
+     password: process.env.DB_PASSWORD,
+     host: process.env.DB_HOST
 };
 const connection = mysql.createConnection(access);
 database.connection = connection;

@@ -1,5 +1,6 @@
 import { RowDataPacket } from "mysql2";
-import { database } from "../../db";
+import { database } from "../../db.js";
+import { Grade } from "./Academics.js";
 
 export interface User {
     id: number;
@@ -136,6 +137,7 @@ enum TableQueryType {
 }
 
 type UserToTable = {
+    "grades": [TableQueryType.Multi, Grade],
     "students": [TableQueryType.Single, Student],
     "staff": [TableQueryType.Single, Staff],
     "user_preferences": [TableQueryType.Multi, UserPreference],
