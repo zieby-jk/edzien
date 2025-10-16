@@ -3,13 +3,15 @@
     --active-bookmark-color: #2854C5;
     --purple: #271F53;
     --label-color: #5e5e5e;
+    --button-shadow: rgba(91, 110, 110, 0.5);
+    --active-link-underline: #757575;
+
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* color: #fff; */
 }
 
 .null-opacity {
@@ -20,13 +22,14 @@
 body {
     width: 100vw;
     min-height: 100vh;
-    background-image: url(/assets/photos/main-page-background.jpg);
+    background-image: url(../photos/main-page-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     font-family: 'Della Respira', sans-serif;
     /* backdrop-filter: blur(3px); */
+    overflow: hidden;
 }
 
 header {
@@ -97,11 +100,12 @@ h2:hover {
     color: #fff;
     position: relative;
     top: 20vh;
-    left: calc(100% - 66rem);
     font-size: 7rem;
     width: 55rem;
     display: block;
     text-shadow: 5px 5px 4px #000;
+    left: calc(100% - 45rem);
+
 }
 
 .login-button {
@@ -116,7 +120,7 @@ h2:hover {
     border-radius: 15px;
     transition: all 0.5s ease;
     border: none;
-    box-shadow: 0 0 10px var(--active-bookmark-color);
+    box-shadow: 0 0 10px var(--button-shadow);
     backdrop-filter: blur(5px); /* eslint-disable-line css/use-baseline */
     -webkit-backdrop-filter: blur(5px);
 
@@ -130,13 +134,13 @@ h2:hover {
     content: '';
     position: absolute;
     top: -50%;
-    left: -70%;
-    width: 230%;
+    left: -60%;
+    width: 240%;
     height: 280%;
     background: linear-gradient(0deg,
             transparent,
             transparent 30%,
-            rgba(0, 255, 255, 0.3));
+            rgba(252, 252, 252, 0.3));
     transform: rotate(-45deg);
     transition: all 0.5s ease;
     opacity: 0;
@@ -144,7 +148,7 @@ h2:hover {
 
 .login-button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 20px var(--button-shadow);
 }
 
 .login-button:hover::before {
@@ -195,11 +199,11 @@ h2:hover {
     text-decoration: none;
     transform-origin: right;
     transition: color .3s;
-    color: #2854C5;
+    color: var(--active-link-underline);
 }
 
 .register a:hover {
-    color: #00ffff;
+    color: #969696;
 }
 
 .register::after {
@@ -207,7 +211,7 @@ h2:hover {
     position: absolute;
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, #346675, #00ffff);
+    background: linear-gradient(to right, var(--active-link-underline), #969696);
     bottom: -5px;
     left: 0;
     transform: scaleX(0);
@@ -279,12 +283,7 @@ h2:hover {
     .heading {
         font-size: 4.5rem;
         width: 40rem;
-        left: 45%;
+        left: calc(100% - 45rem);
     }
 
-    .main-photo {
-
-        min-width: 500px;
-        width: 30%;
-    }
 }
