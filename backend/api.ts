@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { Template } from "./template.js";
-import Hello from "./routes/hello.js";
+import Hello from "./routes/school.js";
 const routes: Template[] = [];
 routes.push(Hello);
 
